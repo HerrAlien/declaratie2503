@@ -35,7 +35,6 @@
         {
             background-size: contain;
             background-color: gray;
-            display: inline-block;
         }
 
         @media screen
@@ -43,6 +42,9 @@
             body
             {
                 margin: 20px;
+                max-width: 720px;
+                margin-right: auto;
+                margin-left: auto;
             }
 
             body, td, table, tr, td > label
@@ -113,6 +115,10 @@
             {
                 width: 165px;
                 height: 100px;
+            }
+            #selectare-semnatura
+            {
+                display: block;
             }
 
         }
@@ -227,16 +233,10 @@
 
             #data-semnatura > tbody > tr > td:nth-child(2) > span
             {
-                /* height: 20mm; */
-                /* display: inline-block; */
                 position: absolute;
-                /* top:  0; */
             }
         }
-
-
         </style>
-
     </head>
     <body>
 
