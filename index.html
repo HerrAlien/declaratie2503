@@ -31,6 +31,13 @@
             width: 50%;
         }
 
+        #vizualizare-semnatura
+        {
+            background-size: contain;
+            background-color: gray;
+            display: inline-block;
+        }
+
         @media screen
         {
             body
@@ -55,7 +62,7 @@
 
             #date-identificare-adresa > tbody > tr > td:nth-child(1)
             {
-                width: 40%;
+                width: 25%;
             }
 
             #nume, #adresa
@@ -101,6 +108,13 @@
             {
                 margin-top: 30px;
             }
+
+            #vizualizare-semnatura
+            {
+                width: 165px;
+                height: 100px;
+            }
+
         }
 
         @media print
@@ -109,9 +123,9 @@
             body
             {
                 margin-left: 20mm;
-                margin-top: 5mm;
+                margin-top: 0mm;
                 margin-right: 5mm;
-                margin-bottom: 5mm;        
+                margin-bottom: 0mm;        
             }
 
             body, td
@@ -172,7 +186,7 @@
             #footer
             {
                 position: fixed;
-                bottom: 5mm;
+                bottom: 1mm;
             }
 
             #data-nasterii, #data-declaratie, #selectare-semnatura
@@ -203,6 +217,21 @@
                 width: 50mm;
             }
 
+            #vizualizare-semnatura
+            {
+                width: 50mm;
+                height: 27mm;
+                margin-left: 20mm;
+                background-color: white;
+            }
+
+            #data-semnatura > tbody > tr > td:nth-child(2) > span
+            {
+                /* height: 20mm; */
+                /* display: inline-block; */
+                position: absolute;
+                /* top:  0; */
+            }
         }
 
 
@@ -305,9 +334,9 @@ Se va bifa doar motivul/motivele deplasării dintre cele prevăzute în listă, 
         <td><label>Data declarației: <input id="data-declaratie" type="date"></label>
             <input id="vizualizare-data-declaratie" type="text"/>
         </td>
-        <td>Semnătura: 
+        <td><span>Semnătura: </span>
             <input id="selectare-semnatura" type="button" value="Selecteaza imagine"/>
-            <img id="vizualizare-semnatura"/>
+            <div id="vizualizare-semnatura"/>
         </td>
     </tr>
 </table>
