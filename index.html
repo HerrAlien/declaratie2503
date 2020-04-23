@@ -46,6 +46,12 @@
             width: 100%;
         }
 
+        table
+        {
+            margin: 0px;
+            padding: 0px;
+        }
+
         @media screen
         {
             body
@@ -186,10 +192,6 @@
                 margin-top: 5mm;
             }
 
-            #footer
-            {
-            }
-
             #data-nasterii, #data-declaratie, #selectare-semnatura
             {
                 display: none;
@@ -235,6 +237,18 @@
             {
                 display: none;
             }
+
+            #motivul-deplasarii > table > tbody > tr > td:nth-child(1)
+            {
+                width: 1mm;
+                padding: 0;
+            }
+            
+            #motivul-deplasarii
+            {
+                border-spacing: 0;
+            }
+
 }
         </style>
     </head>
@@ -346,7 +360,7 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
 </div>
 
 <div id="buton-print">
-Tipareste2
+Tipareste
 </div>
 
     </body>
