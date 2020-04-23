@@ -35,6 +35,8 @@
         {
             background-size: contain;
             background-color: gray;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         table, #div-locul-deplasarii, #nume, 
@@ -51,6 +53,11 @@
             margin: 0px;
             padding: 0px;
             border-spacing: 0;
+        }
+
+        #selectare-semnatura-fisier
+        {
+            display: none;
         }
 
         @media screen
@@ -349,6 +356,7 @@ Se va bifa doar motivul/motivele deplasării dintre cele prevăzute în listă, 
         </td>
         <td><span>Semnătura: </span>
             <input id="selectare-semnatura" type="button" value="Selecteaza imagine"/>
+            <input id="selectare-semnatura-fisier" type="file" value="Selecteaza imagine"/>
             <div id="vizualizare-semnatura"/>
         </td>
     </tr>
@@ -365,6 +373,25 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
 
     document.getElementById("buton-print").onclick = function () {
         window.print();
+    }
+
+    var sigView = document.getElementById("vizualizare-semnatura");
+    var fileSel = document.getElementById("selectare-semnatura-fisier");
+    fileSel.onchange = function() {
+        if (fileSel.files.length == 0) {
+            return;
+        }
+
+        sigView.style["background-image"] = "url('" + 
+            URL.createObjectURL (fileSel.files[0])
+             + "')";
+    }
+
+    document.getElementById("selectare-semnatura").onclick = function() {
+        var fileSel = document.getElementById("selectare-semnatura-fisier");
+        fileSel.dispatchEvent(new MouseEvent("click",  { "view": window, 
+                                                   "bubbles": true, 
+                                                   "cancelable": false }));
     }
 
 </script>
