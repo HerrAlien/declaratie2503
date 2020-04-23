@@ -50,6 +50,7 @@
         {
             margin: 0px;
             padding: 0px;
+            border-spacing: 0;
         }
 
         @media screen
@@ -139,11 +140,6 @@
                 width: 210mm;
             }
 
-            html
-            {
-                height: 279mm;
-            }
-
             body
             {
                 padding-left: 20mm;
@@ -179,12 +175,15 @@
 
             #date-identificare-adresa > tbody > tr > td:nth-child(2)
             {
-                max-width: 135mm;
+                max-width: 140mm;
             }
 
             #date-identificare-adresa
             {
-                border-spacing: 2mm;
+                border-spacing-top: 2mm;
+                border-spacing-bottom: 2mm;
+                border-spacing-right: 0;
+                border-spacing-left: 0;
             }
 
             #div-locul-deplasarii, #motivul-deplasarii, #data-semnatura
@@ -360,7 +359,7 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
 </div>
 
 <div id="buton-print">
-Tipareste
+Tipareste2
 </div>
 
     </body>
