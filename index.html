@@ -109,6 +109,14 @@
                 display: block;
             }
 
+            #buton-print
+            {
+                position: fixed;
+                top: 5px;
+                right: 5px;
+                z-index: 3;
+            }
+
         }
 
         @media print
@@ -212,7 +220,12 @@
             {
                 position: absolute;
             }
-        }
+
+            #buton-print
+            {
+                display: none;
+            }
+}
         </style>
     </head>
     <body>
@@ -322,5 +335,17 @@ Se va bifa doar motivul/motivele deplasării dintre cele prevăzute în listă, 
 Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motivele prevăzute în câmpurile 1-6, deplasarea fiind permisă zilnic doar în intervalul orar 11.00 – 13.00, iar în afara intervalului pentru motivele de la punctul 1 și punctul 6
 </div>
 
+<div id="buton-print">
+Tipareste
+</div>
+
     </body>
 </html>
+
+<script>
+
+    document.getElementById("buton-print").onclick = function () {
+        window.print();
+    }
+
+</script>
