@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ro" xml:lang="ro">
     <head>
 
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
 
         <style>
@@ -37,7 +37,11 @@
             background-color: gray;
         }
 
-        table, #div-locul-deplasarii
+        table, #div-locul-deplasarii, #nume, 
+        #adresa, #locul-deplasarii, 
+        #activitati-agricole,
+        #date-identificare-adresa,
+        #data-semnatura
         {
             width: 100%;
         }
@@ -72,23 +76,9 @@
                 width: 25%;
             }
 
-            #nume, #adresa
-            {
-                width: 100%;
-            }
-
             #date-identificare-adresa
             {
                 border-spacing: 2px;
-            }
-
-            #locul-deplasarii
-            {
-                width: 100%;
-            }
-            #activitati-agricole
-            {
-                width: 100%;
             }
 
             #div-locul-deplasarii, #motivul-deplasarii, #data-semnatura
@@ -102,13 +92,6 @@
             #vizualizare-data-declaratie
             {
                 display: none;
-            }
-
-            #date-identificare-adresa,
-            #div-locul-deplasarii,
-            #data-semnatura
-            {
-                width: 100%;
             }
 
             #data-semnatura, #footer
@@ -130,14 +113,18 @@
 
         @media print
         {
+            html
+            {
+                width: 210mm;
+            }
 
             body
             {
-                margin-left: 20mm;
-                margin-top: 5mm;
-                margin-right: 5mm;
-                margin-bottom: 0mm; 
-                width: 185mm;       
+                margin: 0;
+                padding-left: 20mm;
+                padding-top: 5mm;
+                padding-right: 5mm;
+                padding-bottom: 0mm; 
             }
 
             body, td
@@ -167,27 +154,9 @@
                 width: 50mm;
             }
 
-            #nume, #adresa
-            {
-                width: 100%;
-            }
-
             #date-identificare-adresa
             {
                 border-spacing: 2mm;
-            }
-
-            td
-            {
-                vertical-align: top;
-            }
-            #locul-deplasarii
-            {
-                width: 100%;
-            }
-            #activitati-agricole
-            {
-                width: 100%;
             }
 
             #div-locul-deplasarii, #motivul-deplasarii, #data-semnatura
