@@ -230,10 +230,8 @@
 
             #vizualizare-semnatura
             {
-                width: 50mm;
                 height: 27mm;
                 margin-left: 20mm;
-                background-color: white;
             }
 
             #data-semnatura > tbody > tr > td:nth-child(2) > span
@@ -357,7 +355,7 @@ Se va bifa doar motivul/motivele deplasării dintre cele prevăzute în listă, 
         <td><span>Semnătura: </span>
             <input id="selectare-semnatura" type="button" value="Selecteaza imagine"/>
             <input id="selectare-semnatura-fisier" type="file" value="Selecteaza imagine"/>
-            <div id="vizualizare-semnatura"/>
+            <img id="vizualizare-semnatura"/>
         </td>
     </tr>
 </table>
@@ -382,9 +380,7 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
             return;
         }
 
-        sigView.style["background-image"] = "url('" + 
-            URL.createObjectURL (fileSel.files[0])
-             + "')";
+        sigView.src = URL.createObjectURL (fileSel.files[0]);
     }
 
     document.getElementById("selectare-semnatura").onclick = function() {
@@ -392,6 +388,19 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
         fileSel.dispatchEvent(new MouseEvent("click",  { "view": window, 
                                                    "bubbles": true, 
                                                    "cancelable": false }));
+    }
+
+    document.getElementById("data-nasterii").onchange = function() {
+        var birthDate = this.valueAsDate;
+        document.getElementById("vizualizare-data-nasterii-zi").value = birthDate.getDate();
+        document.getElementById("vizualizare-data-nasterii-luna").value = birthDate.getMonth() + 1;
+        document.getElementById("vizualizare-data-nasterii-an").value = birthDate.getFullYear();
+    }
+
+    document.getElementById("data-declaratie").onchange = function() {
+        var birthDate = this.valueAsDate;
+        document.getElementById("vizualizare-data-declaratie").value = birthDate.getDate()
+        + "/" + Number(birthDate.getMonth() + 1) + "/" + birthDate.getFullYear();
     }
 
 </script>
