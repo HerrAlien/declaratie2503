@@ -75,6 +75,12 @@ dataDeclaratie.onchange(); // to copy values in the print view
 
 editorNume.value = localStorage.getItem(editorNume.id);
 editorAdresa.value = localStorage.getItem(editorAdresa.id);
-sigView.src = localStorage.getItem(sigView.id);
+
+var imageUrl = localStorage.getItem(sigView.id);
+if (imageUrl == null) {
+    imageUrl = 'data:image/svg+xml;utf8,<svg><rect width="10" height="10" style="fill:rgb(200,200,200)"/></svg>';
+}
+
+sigView.src = imageUrl;
 dataNasterii.value = localStorage.getItem(dataNasterii.id);
 dataNasterii.onchange(); // to copy values in the print view
