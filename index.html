@@ -73,6 +73,7 @@
             body, td, table, tr, td > label
             {
                 font-size: 14px;
+                font-family: Arial, Verdana, Sans;
             }
 
             h1
@@ -138,6 +139,12 @@
                 background-position: center;
                 width: 32px;
                 height: 32px;
+            }
+
+            #motivul-deplasarii > table 
+            {
+                border-spacing: 10px;
+                color: #1a0dab;
             }
 
         }
@@ -392,7 +399,7 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
         var reader = new FileReader();
         reader.onloadend = function() {
             sigView.src = reader.result;
-            // todo: persist sigView.src gor later re-use
+            localStorage.setItem(sigView.id, sigView.src);
         }
         reader.readAsDataURL(fileSel.files[0]); 
     }
@@ -404,12 +411,14 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
                                                    "cancelable": false }));
     }
 
-    document.getElementById("data-nasterii").onchange = function() {
+    var dataNasterii = document.getElementById("data-nasterii");
+    dataNasterii.onchange = function() {
         var birthDate = this.valueAsDate;
         document.getElementById("vizualizare-data-nasterii-zi").value = birthDate.getDate();
         document.getElementById("vizualizare-data-nasterii-luna").value = birthDate.getMonth() + 1;
         document.getElementById("vizualizare-data-nasterii-an").value = birthDate.getFullYear();
         // todo: persist birthDate for later re-use
+        localStorage.setItem(dataNasterii.id, dataNasterii.value);
     }
 
     var dataDeclaratie = document.getElementById("data-declaratie");
@@ -430,8 +439,12 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
 
     editorNume.value = localStorage.getItem(editorNume.id);
     editorAdresa.value = localStorage.getItem(editorAdresa.id);
+    sigView.src = localStorage.getItem(sigView.id);
+    dataNasterii.value = localStorage.getItem(dataNasterii.id);
+    dataNasterii.onchange(); // to copy values in the print view
+
     // init from current date
     dataDeclaratie.valueAsDate = new Date();
-    dataDeclaratie.onchange();
+    dataDeclaratie.onchange(); // to copy values in the print view
 
 </script>
