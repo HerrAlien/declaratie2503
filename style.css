@@ -140,6 +140,10 @@ table
             color: #1a0dab;
         }
 
+        #motivul-deplasarii > table > tbody > tr > td:nth-child(2) > label {
+            cursor: pointer;
+        }
+
     }
 
     @media print
