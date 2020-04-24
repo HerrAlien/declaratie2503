@@ -389,7 +389,12 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
             return;
         }
 
-        sigView.src = URL.createObjectURL (fileSel.files[0]);
+        var reader = new FileReader();
+        reader.onloadend = function() {
+            sigView.src = reader.result;
+            // todo: persist sigView.src gor later re-use
+        }
+        reader.readAsDataURL(fileSel.files[0]); 
     }
 
     document.getElementById("selectare-semnatura").onclick = function() {
@@ -404,6 +409,7 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
         document.getElementById("vizualizare-data-nasterii-zi").value = birthDate.getDate();
         document.getElementById("vizualizare-data-nasterii-luna").value = birthDate.getMonth() + 1;
         document.getElementById("vizualizare-data-nasterii-an").value = birthDate.getFullYear();
+        // todo: persist birthDate for later re-use
     }
 
     var dataDeclaratie = document.getElementById("data-declaratie");
@@ -413,7 +419,17 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
         + "/" + Number(birthDate.getMonth() + 1) + "/" + birthDate.getFullYear();
     }
 
+    
+    var editorNume = document.getElementById("nume");
+    editorNume.onchange = function() {
+        localStorage.setItem(this.id, this.value);
+    }
+    var editorAdresa = document.getElementById("adresa");
+    editorAdresa.onchange = editorNume.onchange;
 
+
+    editorNume.value = localStorage.getItem(editorNume.id);
+    editorAdresa.value = localStorage.getItem(editorAdresa.id);
     // init from current date
     dataDeclaratie.valueAsDate = new Date();
     dataDeclaratie.onchange();
