@@ -406,10 +406,16 @@ Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motiv
         document.getElementById("vizualizare-data-nasterii-an").value = birthDate.getFullYear();
     }
 
-    document.getElementById("data-declaratie").onchange = function() {
+    var dataDeclaratie = document.getElementById("data-declaratie");
+    dataDeclaratie.onchange = function() {
         var birthDate = this.valueAsDate;
         document.getElementById("vizualizare-data-declaratie").value = birthDate.getDate()
         + "/" + Number(birthDate.getMonth() + 1) + "/" + birthDate.getFullYear();
     }
+
+
+    // init from current date
+    dataDeclaratie.valueAsDate = new Date();
+    dataDeclaratie.onchange();
 
 </script>
