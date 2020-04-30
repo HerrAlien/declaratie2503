@@ -125,6 +125,8 @@ Se va bifa doar motivul/motivele deplasării dintre cele prevăzute în listă, 
 <div id="footer">
 Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motivele prevăzute în câmpurile 1-6, deplasarea fiind permisă zilnic doar în intervalul orar 11.00 – 13.00, iar în afara intervalului pentru motivele de la punctul 1 și punctul 6
 </div>
+<div id="version">
+</div>
     </body>
 </html>
 <script>
@@ -136,5 +138,31 @@ if ('serviceWorker' in navigator) {
         console.log('ServiceWorker registration failed: ', err);
     });
 }
+
+var CACHE_PREFIX = 'Cache-for-declaratie2503';
+caches.keys().then(names => {
+    var versions = "v";
+    for (var i = 0; i < names.length; i++) {
+        var name = names[i];
+
+        if (!name.startsWith(CACHE_PREFIX)) {
+            continue;
+        }
+
+        var versionPos = name.lastIndexOf('v');
+        if (versionPos < 0) {
+            versionPos = name.lastIndexOf('-');
+        }
+        if (versionPos < 0) {
+            continue;
+        }
+        versions += name.substring(versionPos + 1) + ",";
+    }
+
+    versions = versions.substring(1, versions.length - 1);
+    var div = document.getElementById("version");
+    div.textContent = "version " + versions;
+});
+
 </script>
 <script type="text/JavaScript" language="JavaScript" src="code.js"></script>

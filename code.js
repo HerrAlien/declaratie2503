@@ -17,7 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 "use strict";
 
 document.getElementById("buton-print").onclick = function () {
-    window.print();
+    setTimeout (function() { window.print(); }, 100);
 }
 
 var sigView = document.getElementById("vizualizare-semnatura");

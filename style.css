@@ -102,7 +102,7 @@ table
             display: none;
         }
 
-        #data-semnatura, #footer
+        #data-semnatura, #footer, #version
         {
             margin-top: 30px;
         }
@@ -209,7 +209,7 @@ table
                 margin-top: 5mm;
             }
 
-            #data-nasterii, #data-declaratie, #selectare-semnatura
+            #data-nasterii, #data-declaratie, #selectare-semnatura, #version
             {
                 display: none;
             }
